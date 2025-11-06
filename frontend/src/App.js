@@ -1,40 +1,39 @@
-// src/App.js
-import React, { useEffect, useState } from 'react';
-import './App.css';
-import { supabase } from './supabaseClient';
+import { useEffect, useState } from 'react'
+import supabase from './supabaseClient'
 
 function App() {
-  const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [users, setUsers] = useState([])
 
   useEffect(() => {
-    fetchItems();
-  }, []);
+    loadUsers()
+  }, [])
 
-  async function fetchItems() {
-    setLoading(true);
-    const { data, error } = await supabase.from('users').select('*').limit(50);
+  async function loadUsers() {
+    const { data, error } = await supabase
+      .from('users')
+      .select('*')
+
     if (error) {
-      console.error('Error fetching from Supabase:', error);
-      setItems([]);
-    } else {
-      setItems(data || []);
+      console.error('Error cargando users:', error)
+      return
     }
-    setLoading(false);
+
+    setUsers(data)
   }
 
   return (
-    <div className="App">
-      <h1>Datos desde Supabase</h1>
-      {loading ? <p>Cargando...</p> : (
-        <ul>
-          {items.map((it) => (
-            <li key={it.id ?? it.correo}>{it.correo ?? JSON.stringify(it)}</li>
-          ))}
-        </ul>
-      )}
+    <div style={{ padding: '20px' }}>
+      <h2>Lista de usuarios</h2>
+      {users.length === 0 && <p>No hay usuarios aún</p>}
+      <ul>
+        {users.map((u) => (
+          <li key={u.id}>
+            <strong>{u.id}</strong> — {u.correo}
+          </li>
+        ))}
+      </ul>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
