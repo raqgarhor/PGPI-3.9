@@ -1,12 +1,33 @@
 # AnimalWorld – Tienda Virtual de Juguetes para Mascotas
-Proyecto de Planificación y Gestión de Proyectos Informáticos
-Universidad de Sevilla – Curso 2025
+Proyecto de Planificación y Gestión de Proyectos Informáticos — Universidad de Sevilla
 
-### Descripción General
+Breve guía: mockups y cómo ejecutarlos
 
-AnimalWorld es un proyecto de comercio electrónico (B2C) diseñado para una empresa dedicada a la venta de juguetes para mascotas que desea ampliar su presencia al mercado digital.
-El sistema busca trasladar la experiencia de las tiendas físicas al entorno online, ofreciendo una plataforma segura, intuitiva y accesible para todos los usuarios.
+Descripción corta
+AnimalWorld es una maqueta de tienda online para mostrar el diseño y la interacción (mockups HTML/CSS/JS) del producto.
 
-### Equipo del Proyecto
-Patrocinador:	Nicolás Sánchez
-Directorsa del Proyecto: Santia Bregu, Cynthis Castaño Juan, Raquel García Hortal, Macarena Pereira Campos, Laura Pérez Franco.
+Mockups
+Los archivos de las maqueta están en: `docs/Sprint_1/mockups/petshop-website`.
+Incluye páginas principales como `index.html` y `cart.html` y la carpeta `assets/` con imágenes y estilos.
+
+Cómo ver los mockups (muy breve)
+- Opción rápida (sin servidor): abre `docs/Sprint_1/mockups/petshop-website/index.html` o `cart.html` con doble clic en el explorador.
+- Opción recomendada (servidor local, evita posibles limitaciones del navegador):
+
+	1. Abre PowerShell y ve al directorio de los mockups:
+
+```powershell
+cd docs/Sprint_1/mockups/petshop-website
+python -m http.server 8000
+```
+
+	2. Abre en el navegador: `http://localhost:8000/index.html` (o `cart.html`).
+
+Requisitos mínimos
+- Tener Python instalado para usar `python -m http.server` (opcional). Si no, basta con abrir los archivos HTML directamente.
+
+Contacto / autores
+Grupo 3.09 — Proyecto de asignatura.
+
+---
+Archivo actualizado: instrucciones cortas para ejecutar los mockups localmente.
